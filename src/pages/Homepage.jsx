@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
 
 import PageNav from '../components/PageNav.jsx';
+import AppNav from '../components/AppNav.jsx';
 
 function Homepage() {
   return (
     <div>
+      <AppNav />
       <PageNav />
       <h1>WorldWise</h1>
 
-      <Link to="/pricing">Pricing</Link>
+      <Link to="/app">Go to the app</Link>
     </div>
   );
 }

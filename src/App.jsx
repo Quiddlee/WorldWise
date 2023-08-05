@@ -9,6 +9,7 @@ import AppLayout from './pages/AppLayout.jsx';
 import Login from './pages/Login.jsx';
 import CityList from './components/CityList.jsx';
 import CountryList from './components/CountryList.jsx';
+import City from './components/City.jsx';
 
 const API_BASE_URL = 'http://localhost:8000/';
 const API_CITIES_ENDPOINT = `${API_BASE_URL}cities`;
@@ -16,9 +17,6 @@ const API_CITIES_ENDPOINT = `${API_BASE_URL}cities`;
 function App() {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log(cities);
-  console.log(isLoading);
 
   useEffect(() => {
     async function fetchCities() {
@@ -45,14 +43,9 @@ function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          />
-          <Route
-            path="cities"
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          />
+          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
+          <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
+          <Route path="cities/:id" element={<City />} />
           <Route path="countries" element={<CountryList cities={cities} isLoading={isLoading} />} />
           <Route path="form" element={<p>form</p>} />
         </Route>

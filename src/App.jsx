@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage.jsx';
 import PageNotFound from './pages/PageNotFound.jsx';
 import AppLayout from './pages/AppLayout.jsx';
 import Login from './pages/Login.jsx';
+import CityList from './components/CityList.jsx';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route index element={<p>List of cities</p>} />
+          <Route index element={<CityList />} />
           <Route path="cities" element={<p>Cities</p>} />
           <Route path="countries" element={<p>Countries</p>} />
           <Route path="form" element={<p>form</p>} />

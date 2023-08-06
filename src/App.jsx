@@ -10,6 +10,7 @@ import Login from './pages/Login.jsx';
 import CityList from './components/CityList.jsx';
 import CountryList from './components/CountryList.jsx';
 import City from './components/City.jsx';
+import Form from './components/Form.jsx';
 
 const API_BASE_URL = 'http://localhost:8000/';
 const API_CITIES_ENDPOINT = `${API_BASE_URL}cities`;
@@ -43,11 +44,20 @@ function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
-          <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
+          <Route
+            index
+            element={<CityList cities={cities} isLoading={isLoading} />}
+          />
+          <Route
+            path="cities"
+            element={<CityList cities={cities} isLoading={isLoading} />}
+          />
           <Route path="cities/:id" element={<City />} />
-          <Route path="countries" element={<CountryList cities={cities} isLoading={isLoading} />} />
-          <Route path="form" element={<p>form</p>} />
+          <Route
+            path="countries"
+            element={<CountryList cities={cities} isLoading={isLoading} />}
+          />
+          <Route path="form" element={<Form />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

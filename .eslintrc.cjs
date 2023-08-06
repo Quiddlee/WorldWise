@@ -2,9 +2,9 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
-    'prettier',
     'airbnb-base',
     'eslint:recommended',
+    'eslint-config-prettier',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',

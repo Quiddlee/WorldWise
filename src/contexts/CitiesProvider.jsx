@@ -55,7 +55,18 @@ function CitiesProvider({ children }) {
 
 /**
  * @return {{
- *         cities,
+ *         cities: [{
+ *             cityName: string,
+ *             country: string,
+ *             emoji: string,
+ *             dat: string,
+ *             notes: string,
+ *             position: {
+ *                 lat: number,
+ *                 lng: number
+ *             }
+ *             id: number
+ *         }],
  *         isLoading,
  *         currentCity,
  *         getCity,

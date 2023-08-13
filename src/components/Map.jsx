@@ -12,22 +12,39 @@ import { useEffect, useState } from 'react';
 import styles from './Map.module.css';
 import { useCities } from '../contexts/CitiesProvider.jsx';
 import FlagemojiToSVG from './FlagmojiToSvg.jsx';
+import useGeolocation from '../hooks/useGeolocation';
+import Button from './Button.jsx';
 
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams, serSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  const {
+    getUserGeo,
+    isLoading: isLoadingPosition,
+    position: geolocationPosition,
+  } = useGeolocation();
 
   const mapLat = searchParams.get('lat');
   const mapLng = searchParams.get('lng');
-  const mapPosArr = [mapLat || 40, mapLng || 0];
 
   useEffect(() => {
-    if (mapLat && mapLng) setMapPosition(mapPosArr);
-  }, mapPosArr);
+    if (mapLat && mapLng) setMapPosition([mapLat || 40, mapLng || 0]);
+  }, [mapLat, mapLng]);
+
+  useEffect(() => {
+    if (geolocationPosition)
+      setMapPosition([geolocationPosition.lng, geolocationPosition.lat]);
+  }, [geolocationPosition]);
 
   return (
     <div className={styles.mapContainer}>
+      {geolocationPosition &&
+        !(
+          <Button type="position" onClick={getUserGeo}>
+            {isLoadingPosition ? 'loading...' : 'Use your position'}
+          </Button>
+        )}
       <MapContainer
         center={mapPosition}
         zoom={6}

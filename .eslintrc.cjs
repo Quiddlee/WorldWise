@@ -20,6 +20,7 @@ module.exports = {
     ],
 
     'no-void': 0,
+    'no-alert': 0,
     'react/prop-types': 0,
   },
 }

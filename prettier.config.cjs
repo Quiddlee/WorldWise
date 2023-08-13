@@ -7,5 +7,6 @@ module.exports = {
   bracketSameLine: true,
   importOrder: ["^components/(.*)$", "^[./]" ],
   importOrderSeparation: true,
-  importOrderSortSpecifiers: true
+  importOrderSortSpecifiers: true,
+  editorconfig: true
 };

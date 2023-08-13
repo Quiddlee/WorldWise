@@ -4,7 +4,7 @@ export default function FlagemojiToSVG({ emoji }) {
     .join('');
   return (
     <img
-      src={`https://flagcdn.com/${countryCode}.svg`}
+      src={`https://flagcdn.com/${countryCode || 'ua'}.svg`}
       alt="flag"
       height={20}
     />

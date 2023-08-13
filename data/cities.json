@@ -35,6 +35,66 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Luna",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-13T19:54:47.116Z",
+      "notes": "",
+      "position": {
+        "lat": "42.17968819665963",
+        "lng": "-0.9691987737129028"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Kramatorsk",
+      "country": "Ukraine",
+      "emoji": "🇺🇦",
+      "date": "2023-08-13T19:56:09.925Z",
+      "notes": "",
+      "position": {
+        "lat": "48.71271258145237",
+        "lng": "37.52877959862055"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Foradada del Toscar",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-13T20:01:11.938Z",
+      "notes": "",
+      "position": {
+        "lat": "42.45588764197166",
+        "lng": "0.32958984375000006"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Saint-Michel-les-Portes",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-08-13T20:01:11.938Z",
+      "notes": "",
+      "position": {
+        "lat": "44.89323918604646",
+        "lng": "5.599631888541401"
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Vilters-Wangs",
+      "country": "Switzerland",
+      "emoji": "🇨🇭",
+      "date": "2023-08-13T20:07:32.168Z",
+      "notes": "",
+      "position": {
+        "lat": "47.010225655683485",
+        "lng": "9.423230984685482"
+      },
+      "id": 98443202
     }
   ]
 }

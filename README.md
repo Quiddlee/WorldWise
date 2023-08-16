@@ -1,1 +1,1 @@
-# WorldWise | React Course Project
+# WorldWise

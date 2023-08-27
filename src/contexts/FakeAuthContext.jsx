@@ -86,7 +86,12 @@ function AuthProvider({ children }) {
 }
 
 /**
- * @return {typeof initialState}
+ * @return {{
+ * user: null | Object,
+ * isAuthenticated: boolean,
+ * loagin: Function,
+ * logout: Function
+ * }}
  */
 function useAuth() {
   const context = useContext(AuthContext);

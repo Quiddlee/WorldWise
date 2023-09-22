@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+} from 'react';
 
 const API_BASE_URL = 'http://localhost:8000/';
 const API_CITIES_ENDPOINT = `${API_BASE_URL}cities`;
@@ -119,26 +125,29 @@ function CitiesProvider({ children }) {
   }, [dispatch]);
 
   /**
-   * @param id {number}
+   * @param id {string}
    * @return {Promise<void>}
    */
-  async function getCity(id) {
-    if (Number(currentCity.id) === Number(id)) return;
+  const getCity = useCallback(
+    async (id) => {
+      if (Number(currentCity.id) === Number(id)) return;
 
-    dispatch({ type: 'loading' });
+      dispatch({ type: 'loading' });
 
-    try {
-      const res = await fetch(`${API_CITIES_ENDPOINT}/${id}`);
-      const data = await res.json();
+      try {
+        const res = await fetch(`${API_CITIES_ENDPOINT}/${id}`);
+        const data = await res.json();
 
-      dispatch({ type: 'city/loaded', payload: data });
-    } catch (e) {
-      dispatch({
-        type: 'rejected',
-        payload: 'There was an error loading the city...',
-      });
-    }
-  }
+        dispatch({ type: 'city/loaded', payload: data });
+      } catch (e) {
+        dispatch({
+          type: 'rejected',
+          payload: 'There was an error loading the city...',
+        });
+      }
+    },
+    [currentCity.id],
+  );
 
   /**
    * @param newCity {{
@@ -235,7 +244,7 @@ function CitiesProvider({ children }) {
  *             }
  *             id: number
  *         },
- *         getCity: (id: number) => Promise<void>,
+ *         getCity: (id: string) => Promise<void>,
  *         createCity: (city: {
  *             cityName: string,
  *             country: string,
